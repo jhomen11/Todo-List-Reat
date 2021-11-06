@@ -7,12 +7,14 @@ import Tareas from "./tareas.jsx";
 
 //create your first component
 const Home = () => {
-	const [tarea, guardarTarea] = useState({ tarea: "" });
+	const [tareas, guardarTareas] = useState([]);
+
 	return (
 		<div>
 			<div className="container">
 				<div className="formulario">
 					<Formulario />
+					<Tareas />
 				</div>
 				<div className="tareas"></div>
 			</div>

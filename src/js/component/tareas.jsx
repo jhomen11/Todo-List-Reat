@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Tareas = () => {
-	return <div></div>;
+	return <div>Hola</div>;
 };
 
 export default Tareas;
