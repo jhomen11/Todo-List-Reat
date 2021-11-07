@@ -9,11 +9,16 @@ import Tareas from "./tareas.jsx";
 const Home = () => {
 	const [tareas, guardarTareas] = useState([]);
 
+	//Funcion que tomas las tareas actuales y agraga nuevas
+	const crearTarea = ((tarea)=>{
+		
+	})
+
 	return (
 		<div>
 			<div className="container">
 				<div className="formulario">
-					<Formulario />
+					<Formulario crearTarea={crearTarea} />
 					<Tareas />
 				</div>
 				<div className="tareas"></div>

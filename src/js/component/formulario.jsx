@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export const Formulario = () => {
+export const Formulario = ({crearTarea}) => {
 	//state que guarda o actualiza las tareas
 	const [tarea, guardarTarea] = useState({ actividad: "" });
 
@@ -25,6 +25,8 @@ export const Formulario = () => {
 
 		//asignar id a la tarea
 		tarea.id = uuidv4();
+
+        crearTarea(tarea)
 
 		//Reseteo del formulario
 		guardarTarea({ actividad: "" });
