@@ -10,18 +10,36 @@ const Home = () => {
 	const [tareas, guardarTareas] = useState([]);
 
 	//Funcion que tomas las tareas actuales y agraga nuevas
-	const crearTarea = ((tarea)=>{
-		
-	})
+	const crearTarea = tarea => {
+		guardarTareas([...tareas, tarea]);
+	};
+
+	/*Funcion que elimina las tareas, le pasamos el id de la tarea a eliminar
+	creamos un array nuevo donde vamos filtrar por el id pasado sea diferente al
+	qeu nos crea el metedo filter asi nos devuelve un nuevo array sin el id de la tarea a eliminar*/
+	const eliminarTarea = id => {
+		const nuevasTareas = tareas.filter(tarea => tarea.id !== id);
+		guardarTareas(nuevasTareas);
+	};
+
+	//Mensaje condicional, muestra un mensaje dependiendo si hay tareas o no
+	const titulo = tareas.length === 0 ? "No hay Tareas" : "Listado de Tareas";
 
 	return (
 		<div>
 			<div className="container">
 				<div className="formulario">
 					<Formulario crearTarea={crearTarea} />
-					<Tareas />
 				</div>
 				<div className="tareas"></div>
+				<h1>{titulo}</h1>
+				{tareas.map(tarea => (
+					<Tareas
+						key={tarea.id}
+						tarea={tarea}
+						eliminarTarea={eliminarTarea}
+					/>
+				))}
 			</div>
 		</div>
 	);

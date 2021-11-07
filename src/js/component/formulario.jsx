@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
-export const Formulario = ({crearTarea}) => {
+export const Formulario = ({ crearTarea }) => {
 	//state que guarda o actualiza las tareas
 	const [tarea, guardarTarea] = useState({ actividad: "" });
 
@@ -26,7 +27,9 @@ export const Formulario = ({crearTarea}) => {
 		//asignar id a la tarea
 		tarea.id = uuidv4();
 
-        crearTarea(tarea)
+		/*Funcion mediante la cual se pasa la tarea al componente principal 
+        /para a su vez pasarla al componente donde se van a mostrar*/
+		crearTarea(tarea);
 
 		//Reseteo del formulario
 		guardarTarea({ actividad: "" });
@@ -48,6 +51,10 @@ export const Formulario = ({crearTarea}) => {
 			</form>
 		</div>
 	);
+};
+
+Formulario.propTypes = {
+	crearTarea: PropTypes.any
 };
 
 export default Formulario;
