@@ -36,20 +36,25 @@ export const Formulario = ({ crearTarea }) => {
 	};
 
 	return (
-		<div>
+		<>
+			{error ? (
+				<p className="error">El campo Tarea es obligatorio</p>
+			) : null}
 			<form onSubmit={submitTarea}>
-				{error ? <p>El campo Tarea es obligatorio</p> : null}
-				<label htmlFor="">Tarea:</label>
-				<input
-					type="text"
-					name="actividad"
-					placeholder="Ingrese la Tarea"
-					onChange={actualizarTarea}
-					value={tarea.actividad}
-				/>
-				<button>Agregar Tarea</button>
+				<div className="contenido_formulario">
+					<input
+						type="text"
+						name="actividad"
+						placeholder="Tarea"
+						onChange={actualizarTarea}
+						value={tarea.actividad}
+					/>
+					<button className="agregar">
+						<i className="fas fa-plus"></i>
+					</button>
+				</div>
 			</form>
-		</div>
+		</>
 	);
 };
 

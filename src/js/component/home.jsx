@@ -26,20 +26,22 @@ const Home = () => {
 	const titulo = tareas.length === 0 ? "No hay Tareas" : "Listado de Tareas";
 
 	return (
-		<div>
-			<div className="container">
-				<div className="formulario">
-					<Formulario crearTarea={crearTarea} />
+		<div className="contenido">
+			<div className="main">
+				<h1>Todo List</h1>
+
+				<Formulario crearTarea={crearTarea} />
+
+				<div className="tareas">
+					<h3>{titulo}</h3>
+					{tareas.map(tarea => (
+						<Tareas
+							key={tarea.id}
+							tarea={tarea}
+							eliminarTarea={eliminarTarea}
+						/>
+					))}
 				</div>
-				<div className="tareas"></div>
-				<h1>{titulo}</h1>
-				{tareas.map(tarea => (
-					<Tareas
-						key={tarea.id}
-						tarea={tarea}
-						eliminarTarea={eliminarTarea}
-					/>
-				))}
 			</div>
 		</div>
 	);

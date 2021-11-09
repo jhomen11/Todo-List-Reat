@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 
 export const Tareas = ({ tarea, eliminarTarea }) => {
 	return (
-		<div>
-			<h2>{tarea.actividad}</h2>
-			<button onClick={() => eliminarTarea(tarea.id)}>Eliminiar</button>
+		<div className="contenido_tarea">
+			<p>{tarea.actividad}</p>
+			<button
+				onClick={() => eliminarTarea(tarea.id)}
+				className="eliminar">
+				<i className="far fa-trash-alt"></i>
+			</button>
 		</div>
 	);
 };
