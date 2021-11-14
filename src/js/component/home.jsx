@@ -16,7 +16,7 @@ const Home = () => {
 
 	/*Funcion que elimina las tareas, le pasamos el id de la tarea a eliminar
 	creamos un array nuevo donde vamos filtrar por el id pasado sea diferente al
-	qeu nos crea el metedo filter asi nos devuelve un nuevo array sin el id de la tarea a eliminar*/
+	que nos crea el metedo filter asi nos devuelve un nuevo array sin el id de la tarea a eliminar*/
 	const eliminarTarea = id => {
 		const nuevasTareas = tareas.filter(tarea => tarea.id !== id);
 		guardarTareas(nuevasTareas);
@@ -28,7 +28,7 @@ const Home = () => {
 	return (
 		<div className="contenido">
 			<div className="main">
-				<h1>Todo List</h1>
+				<h1>To Do List</h1>
 
 				<Formulario crearTarea={crearTarea} />
 
@@ -42,6 +42,9 @@ const Home = () => {
 						/>
 					))}
 				</div>
+				<p className="footer">
+					{tareas.length} &nbsp;Tareas pendientes
+				</p>
 			</div>
 		</div>
 	);
